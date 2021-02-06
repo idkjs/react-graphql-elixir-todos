@@ -1,0 +1,15 @@
+# Project dependencies
+.next
+node_modules
+yarn-error.log
+
+# Build directory
+.DS_Store
+
+# bucklescript
+.merlin
+.bsb.lock
+/lib/bs/
+.graphql_ppx_cache
+
+
