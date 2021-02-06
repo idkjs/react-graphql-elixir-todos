@@ -31,7 +31,9 @@ config :todo_list, TodoListWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
-
+# watchers: [
+#   pnpm: ["run", "watch", cd: Path.expand("../assets", __DIR__)]
+# ]
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

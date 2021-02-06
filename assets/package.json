@@ -3,21 +3,37 @@
   "description": " ",
   "license": "MIT",
   "scripts": {
+    "clean": "bsb -clean-world",
+    "watch:bs": "bsb -make-world -w",
     "deploy": "webpack --mode production",
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
     "@absinthe/socket": "^0.2.1",
     "@apollo/client": "^3.2.7",
+    "@jsiebern/bs-material-ui": "^2.0.2",
+    "@jsiebern/bs-material-ui-ppx": "^2.0.1",
     "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.11.1",
+    "@reasonml-community/graphql-ppx": "^1.0.2",
+    "@rescript/react": "^0.10.1",
+    "@ryyppy/rescript-promise": "0.0.2",
     "axios": "^0.21.0",
+    "gentype": "^3.42.0",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
+    "react": "experimental",
+    "react-dom": "experimental",
     "react-hook-form": "^6.11.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "rescript-apollo-client": "^1.1.0"
+  },
+  "resolutions": {
+    "react": "0.0.0-experimental-27659559e",
+    "react-dom": "0.0.0-experimental-27659559e"
   },
   "devDependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -32,6 +48,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.6",
     "babel-loader": "^8.2.1",
+    "bs-platform": "^8.4.2",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "graphql": "^15.4.0",
@@ -39,8 +56,6 @@
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
     "sass-loader": "^8.0.2",
     "terser-webpack-plugin": "^2.3.2",
     "webpack": "4.41.5",

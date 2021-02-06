@@ -4,6 +4,7 @@ import { ApolloLink, ApolloProvider, NormalizedCacheObject } from "@apollo/react
 import { HttpLink, ApolloClient, InMemoryCache, from } from "@apollo/client";
 import { Switch, Redirect, Route, useHistory } from "react-router-dom";
 import { decode } from "jsonwebtoken";
+import { decodeJwt } from "../src/Jwt.bs";
 
 import HomePage from "./home";
 
@@ -16,13 +17,16 @@ export function TodoApp() {
 
   function login(token?: string) {
     // Token exists
+    console.log("token: " + token);
     if (token) localStorage.setItem("auth-token", token);
     else if (!localStorage.getItem("auth-token")) return;
-
+    let testJwt = decodeJwt(localStorage.getItem("auth-token"));
+    console.log("testJwt: " + testJwt);
     // Token is valid
     const { exp } = decode(localStorage.getItem("auth-token")) as {
       exp: number;
     };
+    console.log("exp: " + exp);
     if (Date.now() > exp * 1000) {
       localStorage.removeItem("auth-token");
       return;
@@ -86,8 +90,8 @@ export function TodoApp() {
             <HomePage logout={() => (localStorage.removeItem("auth-token"), setClient(null))} />
           </ApolloProvider>
         ) : (
-          <Redirect to={"/login"} />
-        )}
+            <Redirect to={"/login"} />
+          )}
       </Route>
       <Route path="/">
         <Redirect to={client ? "/home" : "/login"} />
